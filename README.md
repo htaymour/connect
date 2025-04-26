@@ -68,8 +68,7 @@ device = NetworkDevice(name='device_ip', username='your_username', password='you
 ### Connecting to the Device
 Connect to the network device using SSH:
 ```python
-if device.ssh(device.name, username='your_username', password='your_password'):
-    print("Connected to device")
+if device.ssh(device.name): print("Connected to device")
 ```
 
 ### Executing Commands
@@ -103,7 +102,7 @@ Here’s a complete example of how to use the package:
 if __name__ == "__main__":
     h = User('your_username', '')
     h.password = h.get_pass()
-    device = NetworkDevice(name='device_ip', username='your_username', password=h.password)
+    device = NetworkDevice(name='device_ip') # add diffrent in case required special login  , username='your_username', password=h.password)
     if device.ssh(device.name, username='your_username', password=h.password):
         print("Connected to device")
     output = device.push('show ip int brief')
