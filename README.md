@@ -101,6 +101,7 @@ device.close_connection()
 ## Example
 Here’s a complete example of how to use the package:
 ```python
+from connect import User,Router
 if __name__ == "__main__":
     h = User('your_username', '')
     h.password = h.get_pass()
