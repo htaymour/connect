@@ -1,7 +1,7 @@
 # Connect Package
 
 ## Overview
-The **Connect** package is a Python library designed for managing network devices through SSH. It provides functionalities for securely storing and retrieving passwords, making it an ideal solution for automating network management tasks across various devices, not just routers.
+The **Connect** package is a Python library designed for managing network devices through SSH. It provides functionalities for securely storing and retrieving passwords, managing network automation making it an ideal solution for automating network management tasks across various devices.
 
 ## Features
 - **SSH Connectivity**: Establish SSH connections to any network device.
