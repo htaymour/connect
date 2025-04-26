@@ -29,9 +29,9 @@ cd connect
 ## Usage
 
 ### Importing the Package
-You can import the `User` and `NetworkDevice` classes in your own scripts to facilitate network automation:
+You can import the `User` and `Router` classes in your own scripts to facilitate network automation:
 ```python
-from connect import User, NetworkDevice
+from connect import User, Router
 ```
 
 ### Creating a User Instance
@@ -62,9 +62,9 @@ h.get_pass()  # Returns the decrypted password
 ### Creating a Network Device Instance
 Create a network device instance with the device's IP, username, and password:
 ```python
-device = NetworkDevice(name='device_ip', h.username, h.password)
+device = Router(name='device_ip', h.username, h.password)
 # or you can use a special username and password in case required a special logon
-device = NetworkDevice(name='device_ip', username='your_username', password='your_password')
+device = Router(name='device_ip', username='your_username', password='your_password')
 ```
 
 ### Connecting to the Device
@@ -104,7 +104,7 @@ Here’s a complete example of how to use the package:
 if __name__ == "__main__":
     h = User('your_username', '')
     h.password = h.get_pass()
-    device = NetworkDevice(name='device_ip', username=h.username, password=h.password)
+    device = Router(name='device_ip', username=h.username, password=h.password)
     if device.ssh(device.name, username=h.username, password=h.password):
         print("Connected to device")
     output = device.push('show ip int brief')
