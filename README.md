@@ -62,6 +62,8 @@ h.get_pass()  # Returns the decrypted password
 ### Creating a Network Device Instance
 Create a network device instance with the device's IP, username, and password:
 ```python
+device = NetworkDevice(name='device_ip', h.username, h.password)
+# or you can use a special username and password in case required a special logon
 device = NetworkDevice(name='device_ip', username='your_username', password='your_password')
 ```
 
@@ -102,13 +104,18 @@ Here’s a complete example of how to use the package:
 if __name__ == "__main__":
     h = User('your_username', '')
     h.password = h.get_pass()
-    device = NetworkDevice(name='device_ip') # add diffrent in case required special login  , username='your_username', password=h.password)
-    if device.ssh(device.name, username='your_username', password=h.password):
+    device = NetworkDevice(name='device_ip', username=h.username, password=h.password)
+    if device.ssh(device.name, username=h.username, password=h.password):
         print("Connected to device")
     output = device.push('show ip int brief')
     print(output)
     device.discover()
+    # print only up interfaces along with their IP address
     print([interface + ' ' + status[0] for interface, status in device.interface.items() if 'up' in status[1:]])
+    # print router routes
+    print(device.routes)
+    # print default route next hop
+    print(device.routes['0.0.0.0/0'])
     device.close_connection()
 ```
 
