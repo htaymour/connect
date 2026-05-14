@@ -158,7 +158,7 @@ class Router:
             
 # Example usage
 if __name__ == "__main__":
-    h = user('htaymour','')
+    h = user('<username>','')
     h.password = h.get_pass()
     router = Router(name='10.71.100.44',username = h.username,password = h.password)
     if (router.ssh(router.name,username = h.username,password = h.password )) : print ("connected to device")
